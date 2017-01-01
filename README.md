@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/eliaskousk/conan-gtest.svg)](https://travis-ci.org/eliaskousk/conan-gtest)
-
+[![Build Status](https://travis-ci.org/eliaskousk/conan-gtest.svg?branch=release/1.8.0)](https://travis-ci.org/eliaskousk/conan-gtest)
 
 # conan-gtest
 
