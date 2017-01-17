@@ -2,6 +2,7 @@ from conans import ConanFile
 import os
 from conans.tools import download
 from conans.tools import unzip
+from conans.tools import cpu_count
 from conans import CMake
 
 
@@ -43,7 +44,7 @@ class GTestConan(ConanFile):
         force = "-Dgtest_force_shared_crt=ON"
         shared = "-DBUILD_SHARED_LIBS=1" if self.options.shared else ""
         self.run('%s && cmake .. %s %s %s' % (cd_build, cmake.command_line, shared, force))
-        self.run("%s && cmake --build . %s" % (cd_build, cmake.build_config))
+        self.run("%s && cmake --build . %s -- -j%s" % (cd_build, cmake.build_config, cpu_count()))
 
     def package(self):
         # Copying headers
