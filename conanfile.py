@@ -43,8 +43,9 @@ class GTestConan(ConanFile):
         cd_build = "cd _build"
         force = "-Dgtest_force_shared_crt=ON"
         shared = "-DBUILD_SHARED_LIBS=1" if self.options.shared else ""
+        multiple_jobs = "-- -j%s" % cpu_count() if self.settings.compiler != "Visual Studio" else ""
         self.run('%s && cmake .. %s %s %s' % (cd_build, cmake.command_line, shared, force))
-        self.run("%s && cmake --build . %s -- -j%s" % (cd_build, cmake.build_config, cpu_count()))
+        self.run("%s && cmake --build . %s %s" % (cd_build, cmake.build_config, multiple_jobs))
 
     def package(self):
         # Copying headers
