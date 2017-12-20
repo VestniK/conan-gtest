@@ -16,7 +16,7 @@ class GTestConan(ConanFile):
     options = {"shared": [True, False], "include_pdbs": [True, False], "cygwin_msvc": [True, False]}
     default_options = "shared=True", "include_pdbs=False", "cygwin_msvc=False"
     exports = "CMakeLists.txt"
-    url="http://github.com/eliaskousk/conan-gtest"
+    url="http://github.com/VestniK/conan-gtest"
     license="https://github.com/google/googletest/blob/master/googletest/LICENSE"
 
     def config_options(self):
