@@ -34,7 +34,7 @@ class GTestConan(ConanFile):
         os.unlink(zip_name)
 
     def build(self):
-        cmake = CMake(self.settings)
+        cmake = CMake(self)
         msdos_shell = (self.settings.os == "Windows") and (self.options.cygwin_msvc == False)
         if msdos_shell:
             self.run("IF not exist _build mkdir _build")
